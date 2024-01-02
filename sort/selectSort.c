@@ -13,16 +13,13 @@ int printArray(int *array, int arraySize)
     return ret;
 }
 
-/* 选择排序：相较于冒泡排序，减少了交换次数 */
-int main()
+/* 选择排序 */
+int selectSort(int *array, int length)
 {
-    int ret = 0;
-    int array[BUFFER_SIZE] = {1, 30, 24, 5, 58, 12, 39};
-    int  length = sizeof(array) / sizeof(array[0]);
-    int minValue = 0;
-    int minIndex = 0;
     for (int pos = 0; pos <length; pos++)
-    {
+    {   
+        int minValue = 0;
+        int minIndex = 0;
         /* 定义最小值 */
         minValue = array[pos];
         for (int begin = pos + 1; begin < length; begin++)
@@ -42,11 +39,17 @@ int main()
             array[minIndex] = tmp;
         }
     }
+}
 
+/* 选择排序：相较于冒泡排序，减少了交换次数 */
+int main()
+{
+    int ret = 0;
+    int array[BUFFER_SIZE] = {1, 30, 24, 5, 58, 12, 39};
+    int  length = sizeof(array) / sizeof(array[0]);
+    
+    selectSort(array, length);
     printArray(array, length);
-
-
-
 
     return ret;
 }
